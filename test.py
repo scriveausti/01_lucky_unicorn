@@ -1,5 +1,3 @@
-
-i = 1
-while True:
-    print("number ",i)
-    i *= 2
+import random
+n = random.randint(0,22)
+print(n)
