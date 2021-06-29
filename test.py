@@ -1,4 +1,11 @@
-for i in range(0, 100):
-    import random
-    n = random.randint(0,22)
-    print(n)
+answer = False
+while answer == False:
+    new = input("have you played befor?")
+    if new == "yes":
+        answer = True
+        break
+    elif new == "no":
+        print("instruction")
+        break
+    else:
+        print("pleas inter yes or no")
