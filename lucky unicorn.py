@@ -19,7 +19,7 @@ while True:
         print(" <error> please enter yes or no")
 
 # asks how much money they would like to spend
-while True :
+while True:
     try:
         spend = int(input("how much money do you like like to spend between $0 and $10?"))
         if spend <= 10 or spend > 0 :
