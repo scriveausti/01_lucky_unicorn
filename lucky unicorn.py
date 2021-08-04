@@ -1,21 +1,41 @@
+# imports
+import random
+
 # setting variables
 no = ["no", "n"]
 yes = ["yes", "y"]
+balance = 0
 
-# welcomes user
-print("Welcome to lucky unicorn")
-input("press enter to continue")
+# token gen
+def token_gen():
+    ran_number = random.randint(1,10)
+    if ran_number == 1 :
+        token_gen.token = "unicorn"
+        balance += 5
+    elif ran_number == 2 or ran_number == 3 :
+        token_gen.token = "horse"
+        balance -= 0.5
+    elif ran_number == 4 or ran_number ==5 :
+        token_gen.token = "zebra"
+        balance -= 0.5
+    else:
+        token_gen.token = "donkey"
+        balance -= 1
 
 # instructions
 def instructions():
     print("")
     print(" -=-  how to play -=-  ")
     print("")
-    print(" enter the amount of money you would like to gamble ")
+    print(" enter the amount of money you would like to gamble, each round costs $1")
     print(" then it will generate a token that will be a zebra, horse, donkey or unicorn")
     print(" if you get a unicorn you win $5. if you get a zebra or horse you get 50c back")
     print(" if you get a donkey you don't get any money back")
     print("")
+
+# welcomes user
+print("Welcome to lucky unicorn")
+input("press enter to continue")
 
 # asks if they have played before
 answer = False
@@ -40,17 +60,5 @@ while True:
     except:
         print(" <error> please enter a whole number between 0 and 10")
 
-while True:
-    import random
-    ran_number = random.randint(1,8)
-    if ran_number == 1 :
-        token = "unicorn"
+balance = spend
 
-    elif ran_number == 2 or ran_number == 3 :
-        token = "horse"
-
-    elif ran_number == 4 or ran_number ==5 :
-        token = "zebra"
-
-    else:
-        token = "donkey"
