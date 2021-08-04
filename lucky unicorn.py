@@ -8,10 +8,10 @@ balance = 0
 
 # token gen
 def token_gen():
-    ran_number = random.randint(1,10)
+    ran_number = random.randint(1,8)
     if ran_number == 1 :
         token_gen.token = "unicorn"
-        balance += 5
+        balance += 4
     elif ran_number == 2 or ran_number == 3 :
         token_gen.token = "horse"
         balance -= 0.5
