@@ -4,23 +4,35 @@ import random
 # setting variables
 no = ["no", "n"]
 yes = ["yes", "y"]
-balance = 0
+token_gen.balance = 0
+
+# number checker
+def number_check():
+    while True:
+        try:
+            spend = int(input("how much money do you like like to spend between $0 and $10?"))
+            if 10 >= spend > 0:
+                break
+            else:
+                print(" <error> please enter a whole number between 0 and 10")
+        except:
+            print(" <error> please enter a whole number between 0 and 10")
 
 # token gen
 def token_gen():
     ran_number = random.randint(1,8)
     if ran_number == 1 :
         token_gen.token = "unicorn"
-        balance += 4
+        token_gen.balance += 4
     elif ran_number == 2 or ran_number == 3 :
         token_gen.token = "horse"
-        balance -= 0.5
+        token_gen.balance -= 0.5
     elif ran_number == 4 or ran_number ==5 :
         token_gen.token = "zebra"
-        balance -= 0.5
+        token_gen.balance -= 0.5
     else:
         token_gen.token = "donkey"
-        balance -= 1
+        token_gen.balance -= 1
 
 # instructions
 def instructions():
@@ -51,14 +63,13 @@ while True:
 
 # asks how much money they would like to spend
 while True:
-    try:
-        spend = int(input("how much money do you like like to spend between $0 and $10?"))
-        if 10 >= spend > 0:
+    sure = input("are you sure you want {} rounds".format(spend)).strip().lower()
+    if sure in yes:
+        break
+    elif sure in no:
+                    break
+                else:
+                    print(" <error> please enter yes or no")
             break
-        else:
-            print(" <error> please enter a whole number between 0 and 10")
-    except:
-        print(" <error> please enter a whole number between 0 and 10")
-
-balance = spend
+token_gen.balance = spend
 
