@@ -4,14 +4,14 @@ import random
 # setting variables
 no = ["no", "n"]
 yes = ["yes", "y"]
-token_gen.balance = 0
+
 
 # number checker
 def number_check():
     while True:
         try:
-            spend = int(input("how much money do you like like to spend between $0 and $10?"))
-            if 10 >= spend > 0:
+            number_check.spend = int(input("how much money do you like like to spend between $0 and $10?"))
+            if 10 >= number_check.spend > 0:
                 break
             else:
                 print(" <error> please enter a whole number between 0 and 10")
@@ -34,6 +34,7 @@ def token_gen():
         token_gen.token = "donkey"
         token_gen.balance -= 1
 
+token_gen.balance = 0
 # instructions
 def instructions():
     print("")
@@ -44,6 +45,9 @@ def instructions():
     print(" if you get a unicorn you win $5. if you get a zebra or horse you get 50c back")
     print(" if you get a donkey you don't get any money back")
     print("")
+
+# functions variables
+token_gen.balance = 0
 
 # welcomes user
 print("Welcome to lucky unicorn")
@@ -62,14 +66,35 @@ while True:
         print(" <error> please enter yes or no")
 
 # asks how much money they would like to spend
+number_check()
 while True:
-    sure = input("are you sure you want {} rounds".format(spend)).strip().lower()
+    sure = input("are you sure you want {} rounds".format(number_check.spend)).strip().lower()
     if sure in yes:
         break
     elif sure in no:
-                    break
-                else:
-                    print(" <error> please enter yes or no")
-            break
-token_gen.balance = spend
+        number_check()
+    else:
+        print(" <error> please enter yes or no")
+        break
 
+token_gen.balance = number_check.spend
+token_gen()
+print("you got {}".format(token_gen.token))
+print("your balance is now ${}".format(token_gen.balance))
+while True:
+    if token_gen.balance == 0:
+        print("you ran out of money")
+        break
+    else:
+        play_agin = input("do you want to continue playing")
+        if play_agin in yes:
+            token_gen()
+            print("you got {}".format(token_gen.token))
+            print("your balance is now ${}".format(token_gen.balance))
+        elif play_agin in no:
+            break
+        else:
+            print(" <error> please enter yes or no")
+
+print("you made ${}".format(token_gen.balance - number_check.spend))
+input("thank you for playing")
