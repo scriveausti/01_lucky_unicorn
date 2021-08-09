@@ -1,6 +1,9 @@
 # variables
 yes = ["yes", "y"]
 no = ["no", "n"]
+rock = ["rock", "r"]
+paper = ["paper", "p"]
+scissors = ["scissors", "s"]
 
 # functions
 def instructions():
@@ -11,11 +14,19 @@ def instructions():
 def game():
     # asks the user
     while True:
-        RPS = input("please choose rock, paper or scissors")
-        if RPS == "rock" or RPS == "paper" or RPS == "scissors":
+        RPS = input("please choose rock, paper or scissors").strip().lower()
+        if RPS in rock or RPS in paper or RPS in scissors:
             break
         else:
             print("<error> Please enter rock, paper or scissors")
+
+    if RPS in rock :
+        RPS = "rock"
+    elif RPS in scissors:
+        RPS = "scissors"
+    elif RPS in paper:
+        RPS = "paper"
+
 # generates the bot
     import random
     number_RPS = random.randint(1,4)
@@ -31,22 +42,29 @@ def game():
         print("you draw")
         print("the bot chose {}".format(bot_RPS))
 
-    elif RPS == "rock" and bot_RPS == "paper":
+    elif RPS in rock and bot_RPS == "paper":
         print("you lose")
         print("the bot chose {}".format(bot_RPS))
+        game.score -=1
 
-    elif RPS == "paper" and bot_RPS == "scissors":
+    elif RPS in paper and bot_RPS == "scissors":
         print("you lose")
         print("the bot chose {}".format(bot_RPS))
+        game.score -= 1
 
-    elif RPS == "scissors" and bot_RPS == "rock":
+    elif RPS in scissors and bot_RPS == "rock":
         print("you lose")
         print("the bot chose {}".format(bot_RPS))
+        game.score -= 1
 
     else:
         print("☺ YOU WIN ☺")
         print("the bot chose {}".format(bot_RPS))
+        game.score += 1
 
+    print("your score is {}".format(game.score))
+
+game.score = 0
 # welcomes new users
 print("   welcome to")
 print("-=-   rock   -=-")
