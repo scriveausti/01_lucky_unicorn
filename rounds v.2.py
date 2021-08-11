@@ -1,3 +1,7 @@
+
+no = ["no", "n"]
+yes = ["yes", "y"]
+
 while True:
     if token_gen.balance < 1:
         print("you ran out of money")
@@ -12,3 +16,7 @@ while True:
             break
         else:
             print(" <error> please enter yes or no")
+
+print("")
+print("you made ${}".format(token_gen.balance - number_check.spend))
+input("thank you for playing")
