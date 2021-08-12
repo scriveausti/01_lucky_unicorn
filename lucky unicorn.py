@@ -11,7 +11,7 @@ def number_check():
     while True:
         try:
             print("")
-            number_check.spend = int(input("how much money do you like like to spend between $0 and $10?"))
+            number_check.spend = int(input("how much money would you like to spend between $0 and $10?"))
             if 10 >= number_check.spend > 0:
                 break
             else:
